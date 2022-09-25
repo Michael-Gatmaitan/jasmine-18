@@ -2,11 +2,11 @@
 // Module imports
 import React from 'react';
 import {
-  BrowserRouter as Router,
   Route,
   Routes,
-  Link
+  useLocation
 } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 // UI imports
 import Nav from './components/Nav';
@@ -16,18 +16,19 @@ import Eighteenth from './components/Eighteenth';
 import './mixins.css';
 
 const App = () => {
+  const location = useLocation();
   return (
     <React.Fragment>
-      <Router>
 
-        <Nav />
+      <Nav />
 
-        <Routes>
+
+      <AnimatePresence exitBeforeEnter>
+        <Routes location={location} key={location.key}>
           <Route path="/18th" element={<Eighteenth />} />
           <Route exact path="/" element={<Home />} />
         </Routes>
-        
-      </Router>
+      </AnimatePresence>
     </React.Fragment>
   );
 }

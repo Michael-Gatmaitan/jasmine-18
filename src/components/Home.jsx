@@ -2,6 +2,7 @@ import React from 'react';
 import PageBody from './reusable/PageBody';
 import './scss/Home.css';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Home = () => {
   
@@ -20,10 +21,33 @@ const Home = () => {
       pageCardLinkto: "/gallery",
       bgColor: "#262626"
     }
-  ]
+  ];
+
+  const homeVariant = {
+    hidden: {
+      opacity: 0,
+      y: '-10vh'
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { delay: 0.6, duration: 0.5, ease: "easeOut" }
+    },
+
+    exit: {
+      y: '-10vh',
+      opacity: 0,
+      transition: { ease: "easeIn" }
+    }
+  }
 
   return (
-    <React.Fragment>
+    <motion.div className="home container"
+      variants={homeVariant}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
 
       <PageBody
         header="Jasmine Braga Sevilla @18"
@@ -58,7 +82,7 @@ const Home = () => {
 
       </div>
 
-    </React.Fragment>
+    </motion.div>
   );
 }
 

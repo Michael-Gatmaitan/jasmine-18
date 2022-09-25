@@ -50,9 +50,8 @@ nav img {
 }
 
 nav .burger-menu {
-  width: calc(28px + (14px * 2));
   height: 30px;
-  padding: 12px;
+  padding: 14px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

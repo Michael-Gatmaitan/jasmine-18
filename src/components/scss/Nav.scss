@@ -17,9 +17,9 @@ nav {
   }
 
   .burger-menu {
-    width: calc(28px + (14px * 2));
+    // width: calc(28px + (14px * 2));
     height: 30px;
-    padding: 12px;
+    padding: 14px;
     @include flexCenter;
   }
 
